@@ -92,7 +92,7 @@ Automatically generate pTE positions from RepeatMasker or UCSC repeat annotation
 
 **Example**:
 ```bash
-ppte TEreal --knownINS MEI.fa --knownDEL rmsk_chr21.out --CHR chr21 --nTE 500
+ppte TEreal --knownINS MEI.fa --knownDEL rmsk_chr21.txt --CHR chr21 --nTE 500
 ```
 
 ### 3. simulate
