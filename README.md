@@ -38,6 +38,11 @@ ppte simulate --ref chr21.fa \
 `MEI_Callset_GRCh38.ALL.20241211.fasta` contains known pTE insertion sequences  
 `real.bed` is the position of pTE events that generated from `ppte TEreal`  
 
+## Flowchart
+![flowchart](https://github.com/JanMiao/PPTE/blob/main/flowchart.png)
+- The TE deletion information can be obtained from UCSC annotaion file (rmsk.txt) or repeatmasker annotation (.out)  
+- The TE insertion position can be obtained from inbuilt dataset (MEI_Callset_GRCh38.ALL.20241211.fasta). Any TE insertion sequence is acceptable , as long as the sequence ID follows the naming format **CHR-POS-ID**, e.g., **chr1-683234-AluSp**
+
 ## Usage
 PPTEs provides four main command-line subcommands:
 ```bash
