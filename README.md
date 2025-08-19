@@ -25,8 +25,8 @@ ppte TEreal --knownINS MEI_Callset_GRCh38.ALL.20241211.fasta \
 --knownDEL rmsk_chr21.txt \
 --CHR 21 --nTE 100
 ```
-`MEI_Callset_GRCh38.ALL.20241211.fasta` is known pTE insertion, from paper [Logsdon, G.A. et al. Nature, 2025](https://www.nature.com/articles/s41586-025-09140-6)  
-`rmsk_chr21.txt` is the known repeats in Hg38-Chr21, downloaded from UCSC hgTables.  
+- `MEI_Callset_GRCh38.ALL.20241211.fasta` is known pTE insertion, from paper [Logsdon, G.A. et al. Nature, 2025](https://www.nature.com/articles/s41586-025-09140-6)  
+- `rmsk_chr21.txt` is the known repeats in Hg38-Chr21, downloaded from UCSC hgTables.  
 
 **2. Simulate 100 genomes with 100 pTE**  
 ```bash
@@ -34,9 +34,9 @@ ppte simulate --ref chr21.fa \
 --bed real.bed --num 100 \
 --pool MEI_Callset_GRCh38.ALL.20241211.fasta
 ```
-`chr21.fa` is the sequence of Hg38-Chr21  
-`MEI_Callset_GRCh38.ALL.20241211.fasta` contains known pTE insertion sequences  
-`real.bed` is the position of pTE events that generated from `ppte TEreal`  
+- `chr21.fa` is the sequence of Hg38-Chr21  
+- `MEI_Callset_GRCh38.ALL.20241211.fasta` contains known pTE insertion sequences  
+- `real.bed` is the position of pTE events that generated from `ppte TEreal`  
 
 ## Flowchart
 ![flowchart](https://github.com/JanMiao/PPTE/blob/main/flowchart.png)
