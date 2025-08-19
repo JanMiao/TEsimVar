@@ -40,7 +40,7 @@ ppte simulate --ref chr21.fa \
 
 ## Flowchart
 ![flowchart](https://github.com/JanMiao/PPTE/blob/main/flowchart.png)
-- The TE deletion information can be obtained from UCSC annotaion file (rmsk.txt) or repeatmasker annotation (.out)  
+- The TE deletion information can be obtained from [UCSC annotaion file (.txt)](https://genome.ucsc.edu/cgi-bin/hgTables) or [repeatmasker annotation (.out)  ](https://www.repeatmasker.org/genomicDatasets/RMGenomicDatasets.html)
 - The TE insertion position can be obtained from inbuilt dataset (MEI_Callset_GRCh38.ALL.20241211.fasta). Any TE insertion sequence is acceptable , as long as the sequence ID follows the naming format **CHR-POS-ID**, e.g., **chr1-683234-AluSp**
 
 ## Usage
