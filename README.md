@@ -72,7 +72,9 @@ Generate a TE sequence pool from TE consensus sequences.
 
 **Example**:
 ```bash
-# Obtain 1000 TE by introducing random SNPs and INDELs, as well as 3' polyA tail and 5' truncation, into the TE consensus sequences
+# Obtain 1000 TE by introducing random SNPs and INDELs,
+# as well as 3' polyA tail and 5' truncation,
+# into the TE consensus sequences
 ppte TEpool --consensus consensus.fa --num 1000
 ```
 
@@ -93,6 +95,7 @@ Automatically generate pTE positions from RepeatMasker or UCSC repeat annotation
 
 **Example**:
 ```bash
+# simulate 500 pTE events from known TE insertion and deletion
 ppte TEreal --knownINS MEI.fa --knownDEL rmsk_chr21.txt --CHR chr21 --nTE 500
 ```
 
@@ -115,6 +118,7 @@ Simulate pTE insertions/deletions and generate VCF and modified genome FASTA.
 
 **Example**:
 ```bash
+# simulate 2 genome with known pTEs in real.bed
 ppte simulate --ref chr21.fa --te-pool TEpool_out.fasta --bed real.bed --num-genomes 2
 ```
 
