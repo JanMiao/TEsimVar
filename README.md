@@ -67,7 +67,7 @@ Generate a TE sequence pool from TE consensus sequences.
 - `polyA-ratio` : Proportion of sequences to add polyA tail (default: 0.8)
 - `polyA-min` : Minimum polyA length (default: 5)
 - `polyA-max` : Maximum polyA length (default: 20)
-- `random-seed` : Random seed (default: None)
+- `seed` : Random seed (default: None)
 - `verbose` : Disable verbose logging (default: True)
 
 **Example**:
