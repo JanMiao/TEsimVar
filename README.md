@@ -72,6 +72,7 @@ Generate a TE sequence pool from TE consensus sequences.
 
 **Example**:
 ```bash
+# Obtain 1000 TE by introducing random SNPs and INDELs, as well as 3' polyA tail and 5' truncation, into the TE consensus sequences
 ppte TEpool --consensus consensus.fa --num 1000
 ```
 
