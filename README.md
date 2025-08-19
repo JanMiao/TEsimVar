@@ -105,7 +105,7 @@ Simulate pTE insertions/deletions and generate VCF and modified genome FASTA.
 -`num` : Number of simulated genomes  
 
 **Optional arguments:**  
--`output-prefix` : Output prefix (default: Sim)  
+-`outprefix` : Output prefix (default: Sim)  
 -`af-min / --af-max` : Min/max allele frequency (default: 0.1/0.9)  
 -`tsd-min / --tsd-max` : Min/max TSD length (default: 5/20)  
 -`sense-strand-ratio` : Proportion of sense-strand insertions (default: 0.5)  
