@@ -125,11 +125,10 @@ Compare predicted VCF to the simulated VCF.
 **Optional arguments:**  
 -`nHap` : Ploidy level, e.g., 2 for Humans  (default: 2)  
 -`max_dist` : Maximum allowed distance for variant matching (default: 100 bp)  
--`MatchFile` : 
 
 **Example**:
 ```bash
 ppte compare --truth sim.vcf --pred variants.vcf --truthID Hap1_Hap2 --predID Sample
-# In simulation files, genomes are named Hap1, Hap2, etc.; for polyploids, combine haplotype IDs with _ for one individual.
 ```
+In simulation files, genomes are named Hap1, Hap2, etc.; for polyploids, combine haplotype IDs with `_` for one individual.  
 
