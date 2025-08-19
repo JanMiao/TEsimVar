@@ -57,7 +57,7 @@ Generate a TE sequence pool from TE consensus sequences.
 
 **Optional arguments:**
 - `num` : Number of TE sequences to generate (default: 1000)
-- `prefix` : Output prefix for TE pool FASTA (default: TEpool)
+- `outprefix` : Output prefix for TE pool FASTA (default: TEpool)
 - `snp-rate` : SNP mutation rate per base (default: 0.02)
 - `indel-rate` : INDEL mutation rate per base (default: 0.005)
 - `ins-ratio` : Proportion of indels that are insertions (default: 0.4)
