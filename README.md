@@ -36,13 +36,17 @@ ppte TErandom --consensus TEconsensus.fa --knownDEL rmsk.txt --CHR chr21 --nTE 1
 
 **3. Simulate 100 genomes with 100 pTE**  
 ```bash
-ppte simulate --ref chr21.fa \
---bed real.bed --num 100 \
---pool MEI_Callset_GRCh38.ALL.20241211.fasta
+ppte simulate --ref chr21_tiny.fa --bed real.bed --num 2 --pool MEI.fa
 ```
-- `chr21.fa` is the sequence of Hg38-Chr21  
-- `MEI_Callset_GRCh38.ALL.20241211.fasta` contains known pTE insertion sequences  
+- `chr21.fa` is the reference sequence
 - `real.bed` is the position of pTE events that generated from `ppte TEreal`  
+
+**4. Generate sequencing reads from simulated genome** 
+```bash
+ppte readsim --type short --genome random.fa --depth 1 -O short
+ppte readsim --type long --genome random.fa --depth 1 -O long
+```
+
 
 ## Flowchart
 ![flowchart](https://github.com/JanMiao/PPTE/blob/main/flowchart.png)
