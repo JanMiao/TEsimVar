@@ -19,6 +19,8 @@ The package depends on the following Python libraries:
 - pysam
 
 ## Quick start
+The data used in below examples can be found in the **testData** folder  
+
 **1. Simulate 100 pTE from known TE insertions and deletions**
 ```bash
 ppte TEreal --knownINS MEI.fa --knownDEL rmsk.txt --CHR 21 --nTE 100
