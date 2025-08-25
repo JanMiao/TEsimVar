@@ -21,14 +21,18 @@ The package depends on the following Python libraries:
 ## Quick start
 **1. Simulate 100 pTE from known TE insertions and deletions**
 ```bash
-ppte TEreal --knownINS MEI_Callset_GRCh38.ALL.20241211.fasta \
---knownDEL rmsk_chr21.txt \
---CHR 21 --nTE 100
+ppte TEreal --knownINS MEI.fa --knownDEL rmsk.txt --CHR 21 --nTE 100
 ```
-- `MEI_Callset_GRCh38.ALL.20241211.fasta` is known pTE insertion, from paper [Logsdon, G.A. et al. Nature, 2025](https://www.nature.com/articles/s41586-025-09140-6)  
-- `rmsk_chr21.txt` is the known repeats in Hg38-Chr21, downloaded from UCSC hgTables.  
+- `MEI.fa` is known pTE insertion, from paper [Logsdon, G.A. et al. Nature, 2025](https://www.nature.com/articles/s41586-025-09140-6)  
+- `rmsk.txt` is known repeats annotation from UCSC hgTables.
 
-**2. Simulate 100 genomes with 100 pTE**  
+**2. Simulate 100 pTE from known TE deletions and random TE insertions**
+```bash
+ppte TErandom --consensus TEconsensus.fa --knownDEL rmsk.txt --CHR chr21 --nTE 100
+```
+- `TEconsensus.fa` is human TE consensus sequences from Dfam
+
+**3. Simulate 100 genomes with 100 pTE**  
 ```bash
 ppte simulate --ref chr21.fa \
 --bed real.bed --num 100 \
@@ -40,8 +44,8 @@ ppte simulate --ref chr21.fa \
 
 ## Flowchart
 ![flowchart](https://github.com/JanMiao/PPTE/blob/main/flowchart.png)
-- The TE deletion information can be obtained from [UCSC annotaion file (.txt)](https://genome.ucsc.edu/cgi-bin/hgTables) or [repeatmasker annotation (.out)  ](https://www.repeatmasker.org/genomicDatasets/RMGenomicDatasets.html)
-- The TE insertion position can be obtained from inbuilt dataset (MEI_Callset_GRCh38.ALL.20241211.fasta). Any TE insertion sequence is acceptable , as long as the sequence ID follows the naming format **CHR-POS-ID**, e.g., **chr1-683234-AluSp**
+- The known TE deletion information can be obtained from [UCSC annotaion file (.txt)](https://genome.ucsc.edu/cgi-bin/hgTables) or [repeatmasker annotation (.out)  ](https://www.repeatmasker.org/genomicDatasets/RMGenomicDatasets.html)
+- The known TE insertion position can be obtained from our pre-built dataset (data/MEI_Callset_GRCh38.ALL.20241211.fasta). Any TE insertion sequence is acceptable , as long as the sequence ID follows the naming format **CHR-POS-ID**, e.g., **chr1-683234-AluSp**
 
 ## Usage
 PPTEs provides four main command-line subcommands:
