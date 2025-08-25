@@ -19,7 +19,7 @@ The package depends on the following Python libraries:
 - pysam
 
 ## Quick start
-The data used in below examples can be found in the **testData** folder  
+Example data can be found in the **testData** directory   
 
 **1. Simulate 100 pTE from known TE insertions and deletions**
 ```bash
