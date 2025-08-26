@@ -131,7 +131,6 @@ Generate short or long reads from the simulated genome.
 - `type` : Type of reads to simulate (short or long)  
 - `genome` : Reference genome file (FASTA) where reads will be simulated from  
 - `depth` : Depth of simulated reads    
-- `num` : Number of simulated genomes  
 
 **Optional arguments(long reads only):**  
 - `Lerror` : Sequencing error rate for long reads (default: 0.15)  
