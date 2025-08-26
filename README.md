@@ -9,10 +9,16 @@
 You can install PPTEs from source using `pip`:
 
 ```bash
+conda install bioconda::mason
+conda install bioconda::pbsim3
 pip install PPTE
 ```
-##  Dependencies
-The package depends on the following Python libraries:
+##  Dependencies  
+Read simulation:
+- Mason2 (short reads)
+- pbsim (long reads)
+  
+Python libraries:
 - Python 3.8+
 - numpy
 - biopython
