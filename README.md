@@ -1,6 +1,6 @@
-# PPTEs
+# PPTe
 
-**PPTEs** (Pangenome Polymorphic Transposable Elements simulation toolkit) is a Python toolkit for simulating polymorphic transposable elements (pTEs) in genomes. It supports generating TE sequence pools, simulating real pTEs, generating simulated VCF and genome sequences, and comparing predicted VCFs from other TE genotyping tools with the simulated VCF file.
+**PPTEs** (Pangenome Polymorphic Transposable elements simulator) is a Python toolkit for simulating polymorphic transposable elements (pTEs) in genomes. It supports generating TE sequence pools, simulating real pTEs, generating simulated VCF and genome sequences, and comparing predicted VCFs from other TE genotyping tools with the simulated VCF file.
 
 ---
 
