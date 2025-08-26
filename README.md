@@ -16,7 +16,7 @@ pip install PPTE
 ##  Dependencies  
 Read simulation:
 - Mason2 (short reads)
-- pbsim (long reads)
+- pbsim3 (long reads)
   
 Python libraries:
 - Python 3.8+
