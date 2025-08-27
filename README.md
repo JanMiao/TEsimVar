@@ -45,7 +45,7 @@ ppte TErandom --consensus TEconsensus.fa --knownDEL rmsk.txt --CHR chr21 --nTE 1
 ppte simulate --ref chr21_tiny.fa --bed real.bed --num 2 --pool MEI.fa
 ppte simulate --ref chr21_tiny.fa --bed real.bed --num 2 --pool MEI.fa --diverse --diverse_config diverse.config
 ```
-- `chr21.fa` is the reference sequence
+- `chr21_tiny.fa` is the reference sequence
 - `real.bed` is the position of pTE events that generated from `ppte TEreal`
 - `diverse` : Introduce sequence diversity among individuals for the same TE event (which is suitable for evaluating methods that require a TE panel as input)
 - `diverse_config` : A configuration file of parameters for introducing sequence diversity among individuals for the same TE event (optional)
@@ -55,6 +55,7 @@ ppte simulate --ref chr21_tiny.fa --bed real.bed --num 2 --pool MEI.fa --diverse
 ppte readsim --type short --genome random.fa --depth 1 
 ppte readsim --type long --genome random.fa --depth 1
 ```
+- `type` : short reads or long reads
 
 ## Flowchart
 ![flowchart](https://github.com/JanMiao/PPTE/blob/main/flowchart.png)
