@@ -1,6 +1,6 @@
 # PPTe
 
-**PPTe** (PolymorPhic Transposable elements simulator) is a Python toolkit for simulating polymorphic transposable elements (pTEs) in genomes. It supports generating TE sequence pools, simulating real pTEs, generating simulated VCF and genome sequences, and comparing predicted VCFs from other TE genotyping tools with the simulated VCF file.
+**PPTe** (**P**olymor**P**hic **T**ransposable **e**lements simulator) is a Python toolkit for simulating polymorphic transposable elements (pTEs) in genomes. It supports generating TE sequence pools, simulating real pTEs, generating simulated VCF and genome sequences, and comparing predicted VCFs from other TE genotyping tools with the simulated VCF file.
 
 ---
 
