@@ -1,6 +1,14 @@
 # PPTe
 
-**PPTe** (**P**olymor**P**hic **T**ransposable **e**lements simulator) is a Python toolkit for simulating polymorphic transposable elements (pTEs) in genomes. It supports generating TE sequence pools, simulating real pTEs, generating simulated VCF and genome sequences, and comparing predicted VCFs from other TE genotyping tools with the simulated VCF file.
+**PPTe** (**P**olymor**P**hic **T**ransposable **e**lements simulator) is a versatile genome simulation tool for generating polymorphic transposable element (TE) variants. 
+Key features:
+- Supports both TE insertions and deletions
+-	Simulates both real and random TE variants
+-	Simulates both short- and long-read sequencing data
+-	Supports population-scale genome simulation
+-	Generates VCF files
+-	Includes scripts to compare predicted vs. simulated variants
+
 
 ---
 
@@ -14,7 +22,6 @@ conda install bioconda::pbsim3
 pip install PPTE
 ```
 ##  Dependencies  
-Read simulation:
 - Mason2 (short reads)
 - pbsim3 (long reads)
   
@@ -43,6 +50,7 @@ ppte TErandom --consensus TEconsensus.fa --knownDEL rmsk.txt --CHR chr21 --nTE 1
 **3. Simulate 100 genomes with 100 pTE**  
 ```bash
 ppte simulate --ref chr21_tiny.fa --bed real.bed --num 2 --pool MEI.fa
+# if you want to generate sequence vairiations of the same TE between genomes, run below commonds
 ppte simulate --ref chr21_tiny.fa --bed real.bed --num 2 --pool MEI.fa --diverse --diverse_config diverse.config
 ```
 - `chr21_tiny.fa` is the reference sequence
@@ -81,6 +89,7 @@ Generate pTE position from known deletion sites and random TE insertion.
 **Optional arguments:**
 - `num` : Number of TE sequences to generate (default: 1000)
 - `outprefix` : Output prefix for TE pool FASTA (default: TEpool)
+- `TEtype` : TEs to be extracted from the TE deletion file, with the default set as LINE, SINE, LTR, and RC. Specify the TE type by `--TEtype LINE, --TEtype SINE`
 - `snp-rate` : SNP mutation rate per base (default: 0.02)
 - `indel-rate` : INDEL mutation rate per base (default: 0.005)
 - `indel-ins` : Proportion of indels that are insertions (default: 0.4)
@@ -104,7 +113,8 @@ Automatically generate pTE positions from RepeatMasker or UCSC repeat annotation
 
 **Optional arguments:**  
 - `outprefix` : Output prefix for BED file (default: real)  
-- `nTE` : Number of pTE insertions (default: 500)  
+- `nTE` : Number of pTE insertions (default: 500)
+- `TEtype` : TEs to be extracted from the TE deletion file, with the default set as LINE, SINE, LTR, and RC. Specify the TE type by `--TEtype LINE, --TEtype SINE`
 - `ins-ratio` : Proportion of insertion events (default: 0.4)  
 - `seed` : Random seed (default: None)  
 - `verbose` : Disable verbose logging (default: True)  
