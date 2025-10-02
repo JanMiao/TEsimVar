@@ -1,6 +1,7 @@
-# PPTe
+# TEsimVar
 
-**PPTe** (**P**olymor**P**hic **T**ransposable **e**lements simulator) is a versatile genome simulation tool for generating polymorphic transposable element (TE) variants. 
+**TEsimVar** is a versatile genome simulation tool for generating polymorphic transposable element (TE) variants.   
+
 Key features:
 - Supports both TE insertions and deletions
 -	Simulates both real and random TE variants
@@ -17,51 +18,53 @@ Key features:
 You can install PPTEs from source using `pip`:
 
 ```bash
+# gfatools and repeatmasker are used for *TEpan*.
+# mason and pbsim3 are used for short-reads simulation and long-reads simulation, respectively.
+# You may skip installing the software if you do not use the corresponding functionality.
+
+conda install bioconda::gfatools
+conda install bioconda::repeatmasker
 conda install bioconda::mason
 conda install bioconda::pbsim3
-pip install PPTE
+pip install TEsimVar
 ```
-##  Dependencies  
-- Mason2 (short reads)
-- pbsim3 (long reads)
-  
-Python libraries:
-- Python 3.8+
-- numpy
-- biopython
-- pysam
-
 ## Quick start
 Example data can be found in the **testData** directory   
 
 **1. Simulate 100 pTE from known TE insertions and deletions**
 ```bash
-ppte TEreal --knownINS MEI.fa --knownDEL rmsk.txt --CHR 21 --nTE 100
+tesimvar TEreal --knownINS MEI.fa --knownDEL rmsk.txt --CHR 21 --nTE 100
 ```
 - `MEI.fa` is known pTE insertion, from paper [Logsdon, G.A. et al. Nature, 2025](https://www.nature.com/articles/s41586-025-09140-6)  
 - `rmsk.txt` is known repeats annotation from UCSC hgTables.
 
 **2. Simulate 100 pTE from known TE deletions and random TE insertions**
 ```bash
-ppte TErandom --consensus TEconsensus.fa --knownDEL rmsk.txt --CHR chr21 --nTE 100
+tesimvar TErandom --consensus TEconsensus.fa --knownDEL rmsk.txt --CHR chr21 --nTE 100
 ```
 - `TEconsensus.fa` is human TE consensus sequences from Dfam
 
-**3. Simulate 100 genomes with 100 pTE**  
+**3. Simulate 100 pTE from pangenome graph**
 ```bash
-ppte simulate --ref chr21_tiny.fa --bed real.bed --num 2 --pool MEI.fa
+tevarsim TErandom --gfa hprc-v1.0-minigraph-grch38.gfa.gz –lib Homo_sapiens_DFAM.fa  --CHR chr21 --nTE 100
+```
+- `TEconsensus.fa` is human TE consensus sequences from Dfam
+
+**4. Simulate 100 genomes with 100 pTE**  
+```bash
+tesimvar simulate --ref chr21_tiny.fa --bed real.bed --num 2 --pool MEI.fa
 # if you want to generate sequence vairiations of the same TE between genomes, run below commonds
-ppte simulate --ref chr21_tiny.fa --bed real.bed --num 2 --pool MEI.fa --diverse --diverse_config diverse.config
+tesimvar simulate --ref chr21_tiny.fa --bed real.bed --num 2 --pool MEI.fa --diverse --diverse_config diverse.config
 ```
 - `chr21_tiny.fa` is the reference sequence
-- `real.bed` is the position of pTE events that generated from `ppte TEreal`
+- `real.bed` is the position of pTE positions that generated from `tesimvar TEreal`
 - `diverse` : Introduce sequence diversity among individuals for the same TE event (which is suitable for evaluating methods that require a TE panel as input)
 - `diverse_config` : A configuration file of parameters for introducing sequence diversity among individuals for the same TE event (optional)
 
-**4. Generate sequencing reads from simulated genome** 
+**5. Generate sequencing reads from simulated genome** 
 ```bash
-ppte readsim --type short --genome random.fa --depth 1 
-ppte readsim --type long --genome random.fa --depth 1
+tesimvar readsim --type short --genome random.fa --depth 1 
+tesimvar readsim --type long --genome random.fa --depth 1
 ```
 - `type` : short reads or long reads
 
@@ -71,9 +74,9 @@ ppte readsim --type long --genome random.fa --depth 1
 - The known TE insertion position can be obtained from our pre-built dataset (data/MEI_Callset_GRCh38.ALL.20241211.fasta). Any TE insertion sequence is acceptable , as long as the sequence ID follows the naming format **CHR-POS-ID**, e.g., **chr1-683234-AluSp**
 
 ## Usage
-PPTEs provides five main command-line subcommands:
+TEsimVar provides five main command-line subcommands:
 ```bash
-ppte <subcommand> [options]
+tesimvar <subcommand> [options]
 ```
 
 ### 1. TErandom
@@ -177,7 +180,7 @@ Compare predicted VCF to the simulated VCF.
 
 **Example**:
 ```bash
-ppte compare --truth sim.vcf --pred variants.vcf --truthID Hap1_Hap2 --predID Sample
+tesimvar compare --truth sim.vcf --pred variants.vcf --truthID Hap1_Hap2 --predID Sample
 ```
 In simulation files, genomes are named Hap1, Hap2, etc.; for polyploids, combine haplotype IDs with `_` for one individual.  
 
