@@ -91,7 +91,7 @@ Generate pTE position from known deletion sites and random TE insertion.
   
 **Optional arguments:**
 - `num` : Number of TE sequences to generate (default: 1000)
-- `outprefix` : Output prefix for TE pool FASTA (default: TEpool)
+- `outprefix` : Output prefix for TE pool FASTA (default: TErandom)
 - `TEtype` : TEs to be extracted from the TE deletion file, with the default set as LINE, SINE, LTR, and RC. Specify the TE type by `--TEtype LINE, --TEtype SINE`
 - `snp-rate` : SNP mutation rate per base (default: 0.02)
 - `indel-rate` : INDEL mutation rate per base (default: 0.005)
