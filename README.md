@@ -92,7 +92,7 @@ Generate pTE position from known deletion sites and random TE insertion.
 **Optional arguments:**
 - `num` : Number of TE sequences to generate (default: 1000)
 - `outprefix` : Output prefix for TE pool FASTA (default: TErandom)
-- `TEtype` : TEs to be extracted from the TE deletion file, with the default set as LINE, SINE, LTR, and RC. Specify the TE type by `--TEtype LINE, --TEtype SINE`
+- `TEtype` : TEs to be extracted from the TE deletion file, with the default set as LINE, SINE, LTR, and RC. Specify the TE type by `--TEtype LINE --TEtype SINE`
 - `snp-rate` : SNP mutation rate per base (default: 0.02)
 - `indel-rate` : INDEL mutation rate per base (default: 0.005)
 - `indel-ins` : Proportion of indels that are insertions (default: 0.4)
@@ -116,14 +116,31 @@ Automatically generate pTE positions from RepeatMasker or UCSC repeat annotation
 
 **Optional arguments:**  
 - `outprefix` : Output prefix for BED file (default: real)  
-- `nTE` : Number of pTE insertions (default: 500)
-- `TEtype` : TEs to be extracted from the TE deletion file, with the default set as LINE, SINE, LTR, and RC. Specify the TE type by `--TEtype LINE, --TEtype SINE`
+- `nTE` : Number of pTE insertions (default: all TEs)
+- `TEtype` : TEs to be extracted from the TE deletion file, with the default set as LINE, SINE, LTR, and RC. Specify the TE type by `--TEtype LINE --TEtype SINE`
 - `ins-ratio` : Proportion of insertion events (default: 0.4)  
 - `seed` : Random seed (default: None)  
 - `verbose` : Disable verbose logging (default: True)  
 
+### 3. TEpan
+Generate pTE position from Pangenome graph.
 
-### 3. simulate
+**Required arguments:**  
+- `gfa` : GFA file of the pangenome graph
+- `lib` : RepeatMasker library file [pre-formatted libraries](https://www.repeatmasker.org/~cgoubert/GraffiTE_libraries/).
+- `CHR` : Chromosome used to simulate pTE  
+
+**Optional arguments:**  
+- `outprefix` : Output prefix for BED file (default: TEpan)
+- `nTE` : Number of pTE insertions (default: all TEs)
+- `minLen` : Minimum length of structural variants to consider (default: 250)  
+- `cov` : Minimum TE coverage to consider a structural variant as TE (0-1, default: 0.5)
+- `tmpDir` : Temporary directory for intermediate files (default: tmp_TEpan)
+- `TEtype` : TEs to be extracted from the TE deletion file, with the default set as LINE, SINE, LTR, and RC. Specify the TE type by `--TEtype LINE --TEtype SINE`
+- `ins-ratio` : Proportion of insertion events (default: 0.4)  
+- `seed` : Random seed (default: None)  
+
+### 4. Simulate
 Simulate pTE insertions/deletions and generate VCF and modified genome FASTA.
 
 **Required arguments:**
@@ -143,7 +160,7 @@ Simulate pTE insertions/deletions and generate VCF and modified genome FASTA.
 - `verbose` : Disable verbose logging (default: True)  
 
 
-### 4. readsim
+### 5. Readsim
 Generate short or long reads from the simulated genome.
 
 **Required arguments:**
@@ -164,7 +181,7 @@ Generate short or long reads from the simulated genome.
 **Optional arguments(general):**  
 - `seed` : Random seed for reproducibility (default: None)
 
-### 5. compare
+### 6. Compare
 Compare predicted VCF to the simulated VCF.
 
 **Required arguments:**  
