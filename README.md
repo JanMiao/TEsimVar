@@ -48,7 +48,7 @@ tesimvar TErandom --consensus TEconsensus.fa --knownDEL rmsk.txt --CHR chr21 --n
 ```bash
 tevarsim TErandom --gfa hprc-v1.0-minigraph-grch38.gfa.gz –lib Homo_sapiens_DFAM.fa  --CHR chr21 --nTE 100
 ```
-- `TEconsensus.fa` is human TE consensus sequences from Dfam
+- `hprc-v1.0-minigraph-grch38.gfa.gz` is downloaded from [HPRC](https://data.humanpangenome.org/alignments)
 
 **4. Simulate 100 genomes with 100 pTE**  
 ```bash
