@@ -69,7 +69,7 @@ tesimvar readsim --type long --genome random.fa --depth 1
 - `type` : short reads or long reads
 
 ## Flowchart
-![flowchart](https://github.com/JanMiao/PPTE/blob/main/flow.png)
+![flowchart](https://github.com/JanMiao/TEsimVar/blob/main/flowchart.png)  
 - The known TE deletion information can be obtained from [UCSC annotaion file (.txt)](https://genome.ucsc.edu/cgi-bin/hgTables) or [repeatmasker annotation (.out)  ](https://www.repeatmasker.org/genomicDatasets/RMGenomicDatasets.html)
 - The known TE insertion position can be obtained from our pre-built dataset (data/MEI_Callset_GRCh38.ALL.20241211.fasta). Any TE insertion sequence is acceptable , as long as the sequence ID follows the naming format **CHR-POS-ID**, e.g., **chr1-683234-AluSp**
 
