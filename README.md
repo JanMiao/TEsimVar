@@ -21,7 +21,8 @@ You can install PPTEs from source using `pip`:
 # gfatools and repeatmasker are used for *TEpan*.
 # mason and pbsim3 are used for short-reads simulation and long-reads simulation, respectively.
 # You may skip installing the software if you do not use the corresponding functionality.
-
+conda create -n TEsimVar
+conda activate TEsimVar
 conda install bioconda::gfatools
 conda install bioconda::repeatmasker
 conda install bioconda::mason
