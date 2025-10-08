@@ -104,7 +104,6 @@ Generate pTE position from known deletion sites and random TE insertion.
 - `polyA-min` : Minimum polyA length (default: 5)
 - `polyA-max` : Maximum polyA length (default: 20)
 - `seed` : Random seed (default: None)
-- `verbose` : Disable verbose logging (default: True)
 
 
 ### 2. TEreal
@@ -121,7 +120,6 @@ Automatically generate pTE positions from RepeatMasker or UCSC repeat annotation
 - `TEtype` : TEs to be extracted from the TE deletion file, with the default set as LINE, SINE, LTR, and RC. Specify the TE type by `--TEtype LINE --TEtype SINE`
 - `ins-ratio` : Proportion of insertion events (default: 0.4)  
 - `seed` : Random seed (default: None)  
-- `verbose` : Disable verbose logging (default: True)  
 
 ### 3. TEpan
 Generate pTE position from Pangenome graph.
@@ -158,7 +156,6 @@ Simulate pTE insertions/deletions and generate VCF and modified genome FASTA.
 - `tsd-min / --tsd-max` : Min/max TSD length (default: 5/20)  
 - `sense-strand-ratio` : Proportion of sense-strand insertions (default: 0.5)  
 - `seed` : Random seed (default: None)  
-- `verbose` : Disable verbose logging (default: True)  
 
 
 ### 5. Readsim
