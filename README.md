@@ -9,8 +9,6 @@ Key features:
 -	Supports population-scale genome simulation
 -	Generates VCF files
 -	Includes scripts to compare predicted vs. simulated variants
-
-
 ---
 
 ## Installation
@@ -21,41 +19,37 @@ You can install PPTEs from source using `pip`:
 # gfatools and repeatmasker are used for *TEpan*.
 # mason and pbsim3 are used for short-reads simulation and long-reads simulation, respectively.
 # You may skip installing the software if you do not use the corresponding functionality.
-conda create -n TEvarSim
-conda activate TEvarSim
-conda install bioconda::gfatools
-conda install bioconda::repeatmasker
-conda install bioconda::mason
-conda install bioconda::pbsim3
+conda create -n tevarsim -c bioconda gfatools repeatmasker mason pbsim3
+conda activate tevarsim
 pip install TEvarSim
 ```
 ## Quick start
 Example data can be found in the **testData** directory   
 
-**1. Simulate 100 pTE from known TE insertions and deletions**
+**1. Simulate 10 pTE from known TE insertions and deletions**
 ```bash
-tevarsim TEreal --knownINS MEI.fa --knownDEL rmsk.txt --CHR 21 --nTE 100
+tevarsim TEreal --knownINS MEI.fa --knownDEL rmsk.txt --CHR 21 --nTE 10
 ```
 - `MEI.fa` is known pTE insertion, from paper [Logsdon, G.A. et al. Nature, 2025](https://www.nature.com/articles/s41586-025-09140-6)  
 - `rmsk.txt` is known repeats annotation from UCSC hgTables.
 
-**2. Simulate 100 pTE from known TE deletions and random TE insertions**
+**2. Simulate 10 pTE from known TE deletions and random TE insertions**
 ```bash
-tevarsim TErandom --consensus TEconsensus.fa --knownDEL rmsk.txt --CHR chr21 --nTE 100
+tevarsim TErandom --consensus TEconsensus.fa --knownDEL rmsk.txt --CHR chr21 --nTE 10
 ```
 - `TEconsensus.fa` is human TE consensus sequences from Dfam
 
-**3. Simulate 100 pTE from pangenome graph**
+**3. Simulate 10 pTE from pangenome graph**
 ```bash
-tevarsim TErandom --gfa hprc-v1.0-minigraph-grch38.gfa.gz –lib Homo_sapiens_DFAM.fa  --CHR chr21 --nTE 100
+tevarsim TErandom --gfa hprc-v1.0-minigraph-grch38.gfa.gz –lib Homo_sapiens_DFAM.fa  --CHR chr21 --nTE 10
 ```
 - `hprc-v1.0-minigraph-grch38.gfa.gz` is downloaded from [HPRC](https://data.humanpangenome.org/alignments)
 
-**4. Simulate 100 genomes with 100 pTE**  
+**4. Simulate 10 genomes with 10 pTE**  
 ```bash
-tevarsim simulate --ref chr21_tiny.fa --bed real.bed --num 2 --pool MEI.fa
+tevarsim Simulate --ref chr21_tiny.fa --bed real.bed --num 10 --pool MEI.fa
 # if you want to generate sequence vairiations of the same TE between genomes, run below commonds
-tevarsim simulate --ref chr21_tiny.fa --bed real.bed --num 2 --pool MEI.fa --diverse --diverse_config diverse.config
+tevarsim Simulate --ref chr21_tiny.fa --bed real.bed --num 10 --pool MEI.fa --diverse --diverse_config diverse.config
 ```
 - `chr21_tiny.fa` is the reference sequence
 - `real.bed` is the position of pTE positions that generated from `tevarsim TEreal`
@@ -64,8 +58,8 @@ tevarsim simulate --ref chr21_tiny.fa --bed real.bed --num 2 --pool MEI.fa --div
 
 **5. Generate sequencing reads from simulated genome** 
 ```bash
-tevarsim readsim --type short --genome random.fa --depth 1 
-tevarsim readsim --type long --genome random.fa --depth 1
+tevarsim Readsim --type short --genome Sim.fa --depth 10 
+tevarsim Readsim --type long --genome Sim.fa --depth 10
 ```
 - `type` : short reads or long reads
 
